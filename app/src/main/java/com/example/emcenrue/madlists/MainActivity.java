@@ -26,7 +26,10 @@ public class MainActivity extends ActionBarActivity {
         stringArrayList.add("world");
         stringArrayList.add("!");
 
-        mlistAdapter = new ArrayAdapter<String>(this, 0, stringArrayList);
+        lv = (ListView) findViewById(R.id.elListView);
+        mlistAdapter = new ArrayAdapter<String>(this, R.layout.item_row_generic,R.id.rowTextView, stringArrayList);
+
+
 
         lv.setAdapter(mlistAdapter);
     }
