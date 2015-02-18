@@ -2,9 +2,6 @@ package com.example.emcenrue.madlists;
 
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -12,8 +9,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends ActionBarActivity {
 
-    private ArrayAdapter<String> mlistAdapter;
+//    private ArrayAdapter<String> mlistAdapter;
+    private GenericAdapter genericAdapter;
     private ListView lv;
+
+
 
 
     @Override
@@ -21,17 +21,20 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         ArrayList<String> stringArrayList = new ArrayList<String>();
         stringArrayList.add("hello");
         stringArrayList.add("world");
         stringArrayList.add("!");
 
+
         lv = (ListView) findViewById(R.id.elListView);
-        mlistAdapter = new ArrayAdapter<String>(this, R.layout.item_row_generic,R.id.rowTextView, stringArrayList);
+        genericAdapter = new GenericAdapter(this, 0, stringArrayList);
+//        mlistAdapter = new ArrayAdapter<String>(this, R.layout.item_row_generic,R.id.rowTextView, stringArrayList);
 
 
 
-        lv.setAdapter(mlistAdapter);
+        lv.setAdapter(genericAdapter);
     }
 
 }
